@@ -171,7 +171,7 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(102, 302);
+            this.richTextBox1.Location = new System.Drawing.Point(140, 302);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(642, 102);
             this.richTextBox1.TabIndex = 16;
