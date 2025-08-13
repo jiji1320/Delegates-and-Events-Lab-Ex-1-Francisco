@@ -102,5 +102,10 @@ namespace Account_Registration
         {
 
         }
+
+        private void FormRegistration_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
