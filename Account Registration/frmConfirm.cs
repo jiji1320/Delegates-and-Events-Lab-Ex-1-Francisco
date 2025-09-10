@@ -15,7 +15,7 @@ namespace Account_Registration
 {
     public partial class FrmConfirm : Form
     {
-        private DelegateText DelProgram, DelLastName, DelFirstName, DelMiddleName, DelAddress;
+        private DelegateText DelProgram, DelLastName, DelFirstName, DelMI, DelBirthday, DelGender;
         private DelegateNumber DelNumAge, DelNumContactNo, DelStudNo;
 
         private void label8_Click(object sender, EventArgs e)
@@ -41,8 +41,9 @@ namespace Account_Registration
             DelProgram = new DelegateText(StudentInfoClass.GetProgram);
             DelLastName = new DelegateText(StudentInfoClass.GetLastName);
             DelFirstName = new DelegateText(StudentInfoClass.GetFirstName);
-            DelMiddleName = new DelegateText(StudentInfoClass.GetMiddleName);
-            DelAddress = new DelegateText(StudentInfoClass.GetAddress);
+            DelMI = new DelegateText(StudentInfoClass.GetMI);
+            DelBirthday = new DelegateText(StudentInfoClass.GetBirthday);
+            DelGender = new DelegateText(StudentInfoClass.GetGender);
             DelNumAge = new DelegateNumber(StudentInfoClass.GetAge);
             DelNumContactNo = new DelegateNumber(StudentInfoClass.GetContactNo);
             DelStudNo = new DelegateNumber(StudentInfoClass.GetStudentNo);
@@ -57,14 +58,15 @@ namespace Account_Registration
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            label17.Text = DelProgram(StudentInfoClass.Program);
-            label18.Text = DelLastName(StudentInfoClass.LastName);
-            label19.Text = DelFirstName(StudentInfoClass.FirstName);
-            label20.Text = DelMiddleName(StudentInfoClass.MiddleName);
-            label21.Text = DelAddress(StudentInfoClass.Address);
+            label18.Text = DelProgram(StudentInfoClass.Program);
+            label19.Text = DelLastName(StudentInfoClass.LastName);
+            label20.Text = DelFirstName(StudentInfoClass.FirstName);
+            label21.Text = DelMI(StudentInfoClass.MI);
+            label26.Text = StudentInfoClass.Gender;
+            label24.Text = StudentInfoClass.Birthday;
             label22.Text = DelNumAge(StudentInfoClass.Age).ToString();
-            label23.Text = DelNumContactNo(StudentInfoClass.ContactNo).ToString();
-            label24.Text = DelStudNo(StudentInfoClass.StudentNo).ToString();
+            label23.Text = "+63" + StudentInfoClass.ContactNo.ToString();
+            label17.Text = DelStudNo(StudentInfoClass.StudentNo).ToString();
 
 
         }
