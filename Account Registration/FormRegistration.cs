@@ -228,38 +228,54 @@ namespace Account_Registration
         }    
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            StudentInfoClass.Program = program_comboBox1.Text.ToString();
-            StudentInfoClass.FirstName = First_textBox4.Text.ToString();
-            StudentInfoClass.LastName = Lastn_textBox3.Text.ToString();
-            StudentInfoClass.MI = txtMiddleInitial.Text.ToString();
-            StudentInfoClass.Birthday = datePickerBirthday.Text.ToString();
-            StudentInfoClass.Gender = cbGender.Text.ToString();
-            StudentInfoClass.StudentNo = long.Parse(student_txt.Text);
-            StudentInfoClass.Age = long.Parse(Age_textBox6.Text);
-            StudentInfoClass.ContactNo = long.Parse(Contactn_textBox7.Text);
-
-
-            FrmConfirm confirm = new FrmConfirm();
-            if (confirm.ShowDialog() == DialogResult.OK)
+            try 
             {
-                First_textBox4.Clear();
-                Lastn_textBox3.Clear();
-                
-                cbGender.Items.Clear();
-                student_txt.Clear();
-                Age_textBox6.Clear();
-                Contactn_textBox7.Clear();
-                program_comboBox1.SelectedIndex = -1;
+                StudentInfoClass.Program = program_comboBox1.Text.ToString();
+                StudentInfoClass.SetFullName = FullName(Lastn_textBox3.Text, First_textBox4.Text, txtMiddleInitial.Text);
+                //StudentInfoClass.FirstName = First_textBox4.Text.ToString();
+                //StudentInfoClass.LastName = Lastn_textBox3.Text.ToString();
+                //StudentInfoClass.MI = txtMiddleInitial.Text.ToString();
+                StudentInfoClass.Birthday = datePickerBirthday.Value.ToString("yyyy-MM-dd");
+                StudentInfoClass.Gender = cbGender.Text.ToString();
+                StudentInfoClass.StudentNo = (int) StudentNumber(student_txt.Text);
+                StudentInfoClass.Age = long.Parse(Age_textBox6.Text);
+                StudentInfoClass.ContactNo = long.Parse(Contactn_textBox7.Text);
 
-
+                FrmConfirm frm = new FrmConfirm();
+                frm.ShowDialog();
             }
 
-
-
+            catch (FormatException fex)
+            {
+                MessageBox.Show(fex.Message + ": The input data is not in the correct format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (ArgumentNullException anex)
+            {
+                MessageBox.Show(anex.Message + ": One or more fields are empty or invalid.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (OverflowException ofex)
+            {
+                MessageBox.Show(ofex.Message + ": The number is too large.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IndexOutOfRangeException ioex)
+            {
+                MessageBox.Show(ioex.Message + ": The input value is out of the valid range.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+
     }
-    
-    
+
+
+
+
+
+
+
 }
+    
+    
+    
+
         
     

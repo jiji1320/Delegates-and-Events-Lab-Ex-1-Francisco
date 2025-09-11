@@ -11,9 +11,10 @@ namespace Account_Registration
     public delegate string DelegateText(string text);
     internal class StudentInfoClass
     {
-        public static string FirstName = "";
-        public static string LastName = "";
+        //public static string FirstName = "";
+        //public static string LastName = "";
         public static string MI = "";
+        public static string SetFullName = "";
         public static string Program = "";
         public static string Birthday = "";
         public static string Gender = "";
@@ -24,14 +25,14 @@ namespace Account_Registration
 
 
 
-        public static string GetFirstName(string FirstName)
-        {
-            return FirstName;
-        }
-        public static string GetLastName(string LastName)
-        {
-            return LastName;
-        }
+        //public static string GetFirstName(string FirstName)
+        //{
+            //return FirstName;
+        //}
+        //public static string GetLastName(string LastName)
+        //{
+            //return LastName;
+        //}
         public static string GetMI(string MiddleName)
         {
             return MiddleName;
